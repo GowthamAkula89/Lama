@@ -1,5 +1,5 @@
 const catchAsync=require("../utils/catchAsync");
-const projectsServices = require("../services/offering.service")
+const projectsServices = require("../services/projects.service")
 const getProject = catchAsync(async (req, res) => {
     const offerings = await projectsServices.getOfferings();
     res.json({offerings});
