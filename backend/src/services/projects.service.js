@@ -24,7 +24,25 @@ const getProjects = async() => {
     });
     return project;
 }
+
+const updateProjectFiles = async(projectId, projectFile) => {
+    const project = await ProjectData.findOne({ _id: projectId });
+    if (!project) throw new ApiError(httpStatus.NOT_FOUND, "No such project exists");
+    project.files = [...project.files, projectFile];
+    await project.save();
+    return project;
+}
+
+const updateConfiguration = async(projectId, projectConfig) => {
+    const project = await ProjectData.findOne({ _id: projectId });
+    if (!project) throw new ApiError(httpStatus.NOT_FOUND, "No such project exists");
+    project.configuration = projectConfig
+    await project.save();
+    return project;
+}
 module.exports = {
     addProject,
-    getProjects
+    getProjects,
+    updateProjectFiles,
+    updateConfiguration
 }

@@ -9,7 +9,20 @@ const addProject = catchAsync( async(req,res)=>{
     res.send(project);
 
 })
+const updateProjectFiles = catchAsync( async(req, res) => {
+    const { projectId } = req.params;
+    const project = await projectsServices.updateProjectFiles(projectId, req.body);
+    res.send(project);
+})
+
+const updateConfiguration = catchAsync( async(req, res) => {
+    const { projectId } = req.params;
+    const project = await projectsServices.updateConfiguration(projectId, req.body);
+    res.send(project);
+})
 module.exports = {
     getProjects,
-    addProject
+    addProject,
+    updateProjectFiles,
+    updateConfiguration
 }
