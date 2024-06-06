@@ -44,6 +44,7 @@ const projectSchema = new mongoose.Schema({
             positionScreen: String,
             distBottom: Number,
             horizontalDist: Number,
+            chatBotImg: String
         }
     }
 });
