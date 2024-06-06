@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     gap: 15px;
+    margin: 50px 180px;
 }
 .hero-heading{
     font-size: 73.41px;
@@ -37,9 +38,8 @@
     gap: 16.82px;
     background-color: #211935;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 8.51px;
     padding: 5px 15px;
-    margin-bottom: 50px;
 }
 .add-icon{
     width: 55.86px;
@@ -50,39 +50,80 @@
     font-weight: 600;
     color: var(--color-white);
 }
-.create-project-modal-content {
-    width: 1318px;
 
+.projects-container{
+    margin: 50px 125px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: start;
-    background-color: var(--color-white);
-    padding: 20px;
-    border-radius: 8px;
-    overflow-y: auto;
-    border: none;
-    outline: none;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    gap: 25px;
+}
+.projects-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.project-heading{
+    font-size: 73.41px;
+    font-weight: 700;
+    line-height: 86.03px;
+    text-align: left;
+    color: var(--color-purple);
+}
+.add-icon2{
+    height: 36px;
+    width: 36px;
+}
+.create-btn-text2{
+    font-size: 30.55px;
+    font-weight: 600;
+    color: var(--color-white);
+}
+.project-card{
+    width: 382.02px;
+    height: 135.34px;
+    border-radius: 26.17px;
+    border: 1.19px solid var(--color-gray);
+    box-shadow: 1.19px 2.38px 5.95px 0px #0000000F;
+    display: flex;
     gap: 15px;
-    box-sizing: border-box;
+    align-items: center;
+    padding: 7px;
 }
-
-/* Media query to adjust the modal width based on screen size */
-@media (max-width: 1318px) {
-    .create-project-modal-content {
-        width: 100%;
-    }
+.project-title{
+    width: 125.4px;
+    height: 115.4px;
+    border-radius: 18.21px;
+    font-family: Roboto;
+    font-size: 77.95px;
+    font-weight: 700;
+    line-height: 91.35px;
+    text-align: left;
+    background-color: #F8A01D;
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
-@media (max-width: 768px) {
-    .create-project-modal-content {
-        width: 90%;
-    }
+.project-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 75%;
 }
-
-@media (max-width: 480px) {
-    .create-project-modal-content {
-        width: 95%;
-    }
+.project-name{
+    font-size: 25.31px;
+    font-weight: 700;
+    line-height: 29.66px;
+    text-align: left;
+    color: var(--color-purple);
+}
+.project-update{
+    font-size: 15.82px;
+    font-weight: 400;
+    color: var(--color-gray);
+}
+.projects-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
 }

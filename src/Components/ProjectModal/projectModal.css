@@ -1,0 +1,32 @@
+.create-project-modal-content {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: start;
+    background-color: var(--color-white);
+    padding: 20px;
+    border-radius: 8px;
+    overflow-y: auto;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    gap: 15px;
+    box-sizing: border-box;
+}
+.create-project-content-input{
+    width: 100%;
+    height: 44px;
+    outline: none;
+}
+.btns{
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+}
+.cancel-btn{
+    color: rgb(236, 45, 45);
+    cursor: pointer;
+}

@@ -1,60 +1,82 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./heroSection.css";
 import HeroImg from "../Utils/hero.png";
 import AddIcon from "../Utils/Vector.png";
-import Modal from "react-modal";
+
+import { config } from "../../App";
+import ProjectModal from "../ProjectModal";
+
+export function projectCard(project) {
+    return (
+        <div className="project-card">
+            <div className="project-title">{project.projectName.slice(0, 2).toUpperCase()}</div>
+            <div className="project-details">
+                <div>
+                    <div className="project-name">{project.projectName}</div>
+                    <div>{`${project.files.length} Files`}</div>
+                </div>
+                <div className="project-update">Last edited just now</div>
+            </div>
+        </div>
+    );
+}
 
 const HeroSection = () => {
+    const [projects, setProjects] = useState([]);
     const [showModal, setShowModal] = useState(false);
-    const [projectName, setProjectName] = useState("");
-    const handleShowmodal = () => {
+    
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch(config.endpoint);
+                const data = await response.json();
+                setProjects(data.projects);
+            } catch (error) {
+                console.error('Error fetching projects:', error);
+            }
+        };
+        fetchData();
+    }, []);
+
+    const handleShowModal = () => {
         setShowModal(true);
-    }
-    const handleCancel = () => {
-        setShowModal(false);
     };
 
-    const handleInputChange = (e) => {
-        setProjectName(e.target.value);
-    };
-
-    const handleSubmit = () => {
-        setShowModal(false);
-    };
-    return(
+    return (
         <>
-            <div className="hero-container">
-                <div className="hero-heading">Create a New Project</div>
-                <img className="hero-img" src={HeroImg} alt="img"></img>
-                <div className="hero-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in</div>
-                <div className="create-btn" onClick={handleShowmodal}>
-                        <img src={AddIcon} alt="add-icon" className="add-icon"/>
+            {projects.length === 0 ? (
+                <div className="hero-container">
+                    <div className="hero-heading">Create a New Project</div>
+                    <img className="hero-img" src={HeroImg} alt="img" />
+                    <div className="hero-content">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                    </div>
+                    <div className="create-btn" onClick={handleShowModal}>
+                        <img src={AddIcon} alt="add-icon" className="add-icon" />
                         <div className="create-btn-text">Create New Project</div>
-                </div>
-            </div>
-            <Modal
-                isOpen={showModal}
-                onRequestClose={handleCancel}
-                contentLabel="Login Modal"
-                className="modal"
-                overlayClassName="modal-overlay"
-            >
-                <div className="modal-container">
-                    <div className="create-project-modal-content">
-                        <div className="modal-content-heading">Create Project</div>
-                        <div className="modal-content-subheading">Enter project Name:</div>
-                        <input
-                            className="content-input"
-                            type="text"
-                            name="projectName"
-                            placeholder="Full Name*"
-                            onChange={handleInputChange}
-                        />
-                        <button className="btn content-input" onClick={handleSubmit}>LOGIN</button>
                     </div>
                 </div>
-            </Modal>
+            ) : (
+                <div className="projects-container">
+                    <div className="projects-header">
+                        <div className="project-heading">Projects</div>
+                        <div className="create-btn" onClick={handleShowModal}>
+                            <img src={AddIcon} alt="add-icon" className="add-icon2" />
+                            <div className="create-btn-text2">Create New Project</div>
+                        </div>
+                    </div>
+                    <div className="projects-list">
+                        {projects.map((project) =>
+                            <div key={project._id}>
+                                {projectCard(project)}
+                            </div>
+                        )}
+                    </div>
+                </div>
+            )}
+            <ProjectModal showModal={showModal} setShowModal={setShowModal} setProjects={setProjects}/>
         </>
-    )
-}
+    );
+};
+
 export default HeroSection;
