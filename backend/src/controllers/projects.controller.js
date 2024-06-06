@@ -1,15 +1,15 @@
 const catchAsync=require("../utils/catchAsync");
 const projectsServices = require("../services/projects.service")
-const getProject = catchAsync(async (req, res) => {
-    const offerings = await projectsServices.getOfferings();
-    res.json({offerings});
+const getProjects = catchAsync(async (req, res) => {
+    const projects = await projectsServices.getProjects();
+    res.json({projects});
 });
 const addProject = catchAsync( async(req,res)=>{
-    const offering = await projectsServices.addOffering(req.body);
-    res.send(offering);
+    const project = await projectsServices.addProject(req.body);
+    res.send(project);
 
 })
 module.exports = {
-    getProject,
+    getProjects,
     addProject
 }

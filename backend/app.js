@@ -27,7 +27,7 @@ client-side application, the browser, by default, blocks the request for securit
 app.use(cors());
 app.options("*",cors());
 app.use("/v1",routes);
-app.use((req,res,next)=>{
-    next(new ApiError(httpStatus.NOT_FOUND,"Not found"));
-})
+// app.use((req,res,next)=>{
+//     next(new ApiError(httpStatus.NOT_FOUND,"Not found"));
+// })
 module.exports=app;

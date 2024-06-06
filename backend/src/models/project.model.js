@@ -1,54 +1,83 @@
 const mongoose = require("mongoose");
 
 const projectSchema = new mongoose.Schema({
-    projectName:{
+    projectName: {
         type: String,
         required: true,
         trim: true
     },
-    files:[{
-        fileName:{
+    files: [{
+        fileName: {
             type: String,
-            required: true,
             trim: true
         },
-        fileDiscription: {
+        fileDescription: {
             type: String,
-            required: true,
             trim: true
         }
     }],
-    configuration:{
-        general:{
-            chatBotName:{
+    configuration: {
+        general: {
+            chatBotName: {
                 type: String,
-                required: true,
-                trim: true
+                trim: true,
+                default: ""
             },
-            welcomeMessage:{
+            welcomeMessage: {
                 type: String,
-                required: true,
-                trim: true
+                trim: true,
+                default: ""
             },
-            inputPlaceholder:{
+            inputPlaceholder: {
                 type: String,
-                required: true,
-                trim: true
+                trim: true,
+                default: ""
             }
         },
-        display:{
-            primaryColor: String,
-            fontColor: String,
-            fontSize : Number,
-            chatIconSize : String,
-            positionScreen: String,
-            distBottom: Number,
-            horizontalDist: Number,
-            chatBotImg: String
+        display: {
+            primaryColor: {
+                type: String,
+                trim: true,
+                default: ""
+            },
+            fontColor: {
+                type: String,
+                trim: true,
+                default: ""
+            },
+            fontSize: {
+                type: Number,
+                default: 0
+            },
+            chatIconSize: {
+                type: String,
+                trim: true,
+                default: ""
+            },
+            positionScreen: {
+                type: String,
+                trim: true,
+                default: ""
+            },
+            distBottom: {
+                type: Number,
+                default: 0
+            },
+            horizontalDist: {
+                type: Number,
+                default: 0
+            },
+            chatBotImg: {
+                type: String,
+                trim: true,
+                default: ""
+            }
         }
     }
 });
-const ProjectssData = mongoose.model("ProjectssData", projectSchema);
+
+const ProjectData = mongoose.model("ProjectData", projectSchema); 
+
 module.exports = {
-    ProjectssData
-}
+    ProjectData 
+};
