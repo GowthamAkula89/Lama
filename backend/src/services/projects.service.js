@@ -1,7 +1,7 @@
 const httpStatus = require("http-status");
 const ApiError = require("../utils/ApiError");
 const mongoose = require("mongoose");
-const {ProjectsData} = require("../models/offering.model")
+const {ProjectsData} = require("../models/project.model")
 const addProject = async(projectDetails)=>{
     try {
         const project = await ProjectsData.create(projectDetails);
