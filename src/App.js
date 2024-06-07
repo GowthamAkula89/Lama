@@ -1,14 +1,17 @@
 import './App.css';
-import Header from './Components/Header';
-import HeroSection from './Components/HeroSection';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './Pages/HomePage';
 export const config = {
   endpoint: `https://lama-6tj9.onrender.com/v1/projects`,
 };
 function App() {
   return (
     <div className="App">
-      <Header/>
-      <HeroSection/>
+      <Router>
+        <Routes>
+          <Route path='/' element={<HomePage />}/>
+        </Routes>
+      </Router>
     </div>
   );
 }
