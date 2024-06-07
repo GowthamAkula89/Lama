@@ -40,9 +40,23 @@ const updateConfiguration = async(projectId, projectConfig) => {
     await project.save();
     return project;
 }
+
+const deleteFile = async (projectId, fileId) => {
+    const project = await ProjectData.findOne({ _id: projectId });
+    if (!project) throw new ApiError(httpStatus.NOT_FOUND, "No such project exists");
+
+    const fileIndex = project.files.findIndex(file => file._id.toString() === fileId);
+    if (fileIndex === -1) throw new ApiError(httpStatus.NOT_FOUND, "File not found");
+
+    project.files.splice(fileIndex, 1);
+    await project.save();
+    return project;
+}
+
 module.exports = {
     addProject,
     getProjects,
     updateProjectFiles,
-    updateConfiguration
+    updateConfiguration,
+    deleteFile
 }

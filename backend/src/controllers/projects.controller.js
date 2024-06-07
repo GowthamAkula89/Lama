@@ -20,9 +20,16 @@ const updateConfiguration = catchAsync( async(req, res) => {
     const project = await projectsServices.updateConfiguration(projectId, req.body);
     res.send(project);
 })
+
+const deleteFile = catchAsync( async(req,res) => {
+    const{projectId, fileId} = req.params;
+    const project = await projectsServices.deleteFile(projectId, fileId);
+    res.send(project);
+})
 module.exports = {
     getProjects,
     addProject,
     updateProjectFiles,
-    updateConfiguration
+    updateConfiguration,
+    deleteFile
 }

@@ -5,4 +5,5 @@ router.post("/", projectsRoute.addProject);
 router.get("/",projectsRoute.getProjects);
 router.patch("/:projectId/files", projectsRoute.updateProjectFiles);
 router.patch("/:projectId/configuration", projectsRoute.updateConfiguration);
+router.delete("/:projectId/files/:fileId", projectsRoute.deleteFile)
 module.exports = router;
