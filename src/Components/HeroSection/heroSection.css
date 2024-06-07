@@ -110,6 +110,9 @@
     justify-content: space-between;
     height: 75%;
 }
+.project-container{
+    text-decoration: none;
+}
 .project-name{
     font-size: 25.31px;
     font-weight: 700;

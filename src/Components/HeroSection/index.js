@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./heroSection.css";
 import HeroImg from "../Utils/hero.png";
 import AddIcon from "../Utils/Vector.png";
-
+import {Link} from "react-router-dom";
 import { config } from "../../App";
 import ProjectModal from "../ProjectModal";
+import DataContext from "../DataContext";
 
 export function projectCard(project) {
     return (
@@ -22,7 +23,7 @@ export function projectCard(project) {
 }
 
 const HeroSection = () => {
-    const [projects, setProjects] = useState([]);
+    const {projects, setProjects, setProject} = useContext(DataContext);
     const [showModal, setShowModal] = useState(false);
     
     useEffect(() => {
@@ -41,6 +42,10 @@ const HeroSection = () => {
     const handleShowModal = () => {
         setShowModal(true);
     };
+
+    const handleProject =(data) => {
+        setProject(data);
+    }
 
     return (
         <>
@@ -68,7 +73,10 @@ const HeroSection = () => {
                     <div className="projects-list">
                         {projects.map((project) =>
                             <div key={project._id}>
-                                {projectCard(project)}
+                                <Link to="/project" className="project-container" onClick={()=>handleProject(project)}>
+                                    {projectCard(project)}
+                                </Link>
+                                
                             </div>
                         )}
                     </div>
