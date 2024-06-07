@@ -1,12 +1,12 @@
 import React from "react";
 import Header from "../../Components/Header";
-import Uploads from "../../Components/Uploads";
+import ProjectUploads from "../../Components/ProjectUploads";
 
 const ProjectPage = () => {
     return(
         <div>
             <Header/>
-            <Uploads/>
+            <ProjectUploads/>
         </div>
     )
 }
