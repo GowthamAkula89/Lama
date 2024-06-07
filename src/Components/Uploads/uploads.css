@@ -1,0 +1,48 @@
+.uploads-container{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+.uploads-heading{
+    font-size: 55px;
+    font-weight: 700;
+    line-height: 64.45px;
+    text-align: left;
+    color: var(--color-purple);
+}
+.upload-card{
+    width: 318px;
+    height: 98px;
+    border: 1px solid var(--color-gray);
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+.upload-types{
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.upload-details{
+    font-size: 26.64px;
+    font-weight: 700;
+    line-height: 33.06px;
+    letter-spacing: 0.1903058886528015px;
+    text-align: left;
+}
+.uploads-list-headings{
+    display: flex;
+}
+.item-container{
+    max-width: 245px;
+    width: 100%;
+    font-size: 26.64px;
+    font-weight: 700;
+    line-height: 33.06px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
