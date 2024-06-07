@@ -29,7 +29,19 @@ export function VideoTypeCard({ item }) {
         </div>
     );
 }
-
+export function ItemCard({item}) {
+    return(
+        <div className="item-card">
+            <div className="">{item.fileName}</div>
+            <div>12 Jun 24| 15:47</div>
+            <div>Done</div>
+            <div>
+                <div>Edit</div>
+                <div>Delete</div>
+            </div>
+        </div>
+    )
+}
 const Uploads = () => {
     const { project } = useContext(DataContext);
     const [selectedType, setSelectedType] = useState(null);
