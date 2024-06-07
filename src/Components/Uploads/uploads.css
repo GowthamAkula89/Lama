@@ -33,8 +33,15 @@
     letter-spacing: 0.1903058886528015px;
     text-align: left;
 }
+.uploads-list{
+    border: 1px solid var(--color-gray);
+    max-width: 985px;
+    border-radius: 22px;
+}
 .uploads-list-headings{
     display: flex;
+    height: 68px;
+    max-width: 985px;
 }
 .item-container{
     max-width: 245px;
@@ -45,4 +52,47 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.name-container{
+    justify-content: start;
+    padding-left: 68px;
+}
+.item-card{
+    display: flex;
+    height: 68px;
+    max-width: 985px;
+}
+.item-content{
+    max-width: 245px;
+    width: 100%;
+    font-size: 26.64px;
+    font-weight: 500;
+    line-height: 33.06px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.edit-btn{
+    border: 1px solid var(--color-black);
+    border-radius: 5px 0 0 5px;
+    padding: 5px
+}
+.delete-btn{
+    border: 1px solid var(--color-black);
+    padding: 5px;
+    border-radius: 0 5px 5px 0;
+    color: rgb(234, 50, 50);
+}
+@media screen and (max-width: 885px) {
+    .item-content{
+        font-size: 15px;
+        line-height: 21px;
+    }
+    .item-container{
+        font-size: 18px;
+        line-height: 21px;
+    }
+    .name-container{
+        padding-left: 15px;
+    }
 }

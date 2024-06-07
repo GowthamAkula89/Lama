@@ -33,7 +33,7 @@
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify(   file)
+                    body: JSON.stringify(file)
                 });
         
                 const responseData = await response.json();
