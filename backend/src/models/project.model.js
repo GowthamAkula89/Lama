@@ -14,6 +14,9 @@ const projectSchema = new mongoose.Schema({
         fileDescription: {
             type: String,
             trim: true
+        },
+        updatedAt:{
+            type: String
         }
     }],
     configuration: {

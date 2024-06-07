@@ -28,7 +28,13 @@ const getProjects = async() => {
 const updateProjectFiles = async(projectId, projectFile) => {
     const project = await ProjectData.findOne({ _id: projectId });
     if (!project) throw new ApiError(httpStatus.NOT_FOUND, "No such project exists");
-    project.files = [...project.files, projectFile];
+    // project.files = [...project.files, projectFile];
+    const newFile = {
+        ...projectFile,
+        updatedAt: new Date()
+    };
+
+    project.files.push(newFile);
     await project.save();
     return project;
 }
