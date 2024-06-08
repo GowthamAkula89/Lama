@@ -63,7 +63,7 @@ const updateFile = async (projectId, fileId, updateFileData) => {
 
         await project.save();
 
-        return file;
+        return project;
     } catch (error) {
         console.error("Error updating file:", error);
         throw error;
