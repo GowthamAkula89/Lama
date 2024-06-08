@@ -130,3 +130,33 @@
     flex-wrap: wrap;
     gap: 25px;
 }
+.loading-message{
+    font-size: 45px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media screen and (max-width: 1075px) {
+    .hero-container{
+        margin: 15px;
+    }
+    .projects-container{
+        margin: 15px;
+    }
+    .project-card {
+        width: 326.02px;
+    }
+}
+@media screen and (max-width: 785px){
+    .create-btn-text2 {
+        font-size: 12.55px;
+    }
+    .add-icon2 {
+        height: 26px;
+        width: 25px;
+    }
+    .project-heading {
+        font-size: 40.41px;
+    }
+}

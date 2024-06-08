@@ -4,7 +4,7 @@
     gap: 25px;
     flex: 1;
     background-color: var(--color-white);
-    padding-left: 25px;
+    padding: 25px;
 }
 .uploads-heading{
     font-size: 55px;

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import "./heroSection.css";
 import HeroImg from "../Utils/hero.png";
 import AddIcon from "../Utils/Vector.png";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { config } from "../../App";
 import ProjectModal from "../ProjectModal";
 import DataContext from "../DataContext";
@@ -23,28 +23,35 @@ export function projectCard(project) {
 }
 
 const HeroSection = () => {
-    const {projects, setProjects, setProject} = useContext(DataContext);
+    const { projects, setProjects, setProject } = useContext(DataContext);
     const [showModal, setShowModal] = useState(false);
-    
+    const [loading, setLoading] = useState(true); // Add loading state
+
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await fetch(config.endpoint);
                 const data = await response.json();
                 setProjects(data.projects);
+                setLoading(false); // Set loading to false after data is fetched
             } catch (error) {
                 console.error('Error fetching projects:', error);
+                setLoading(false); // Set loading to false in case of error
             }
         };
         fetchData();
-    }, []);
+    }, [setProjects]); // Add setProjects as a dependency
 
     const handleShowModal = () => {
         setShowModal(true);
     };
 
-    const handleProject =(data) => {
+    const handleProject = (data) => {
         setProject(data);
+    };
+
+    if (loading) {
+        return <div className="loading-message">Loading...</div>; 
     }
 
     return (
@@ -73,16 +80,15 @@ const HeroSection = () => {
                     <div className="projects-list">
                         {projects.map((project) =>
                             <div key={project._id}>
-                                <Link to="/project" className="project-container" onClick={()=>handleProject(project)}>
+                                <Link to="/project" className="project-container" onClick={() => handleProject(project)}>
                                     {projectCard(project)}
                                 </Link>
-                                
                             </div>
                         )}
                     </div>
                 </div>
             )}
-            <ProjectModal showModal={showModal} setShowModal={setShowModal} setProjects={setProjects}/>
+            <ProjectModal showModal={showModal} setShowModal={setShowModal} setProjects={setProjects} />
         </>
     );
 };

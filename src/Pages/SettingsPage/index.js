@@ -3,6 +3,9 @@ import Header from "../../Components/Header";
 import SideBar from "../../Components/SideBar";
 import "./settingsPage.css"
 import About from "../../Components/About";
+
+
+
 const SettingsPage = ({isProjectsPage, isConfigurationPage, isSettingsPage}) => {
     return(
         <div>

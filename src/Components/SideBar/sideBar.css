@@ -1,5 +1,5 @@
 .side-bar{
-    width: 295px;
+    width: 251px;
     height: 88vh;
     background-color: #F3E8FF;
     display: flex;
@@ -57,5 +57,11 @@
     font-size: 18.55px;
     font-weight: 600;
     line-height: 26.5px;
+    
+}
+@media screen and (max-width: 897px) {
+    .side-bar{
+        display: none;
+    }
     
 }

@@ -64,8 +64,7 @@ const About = () => {
                 </>
             ) : (
                 <div className="login-form">
-                    {/* Your login form JSX goes here */}
-                    <button>Login</button>
+                    <div style={{textAlign:"center"}}>Login to view accout details</div>
                 </div>
             )}
         </div>

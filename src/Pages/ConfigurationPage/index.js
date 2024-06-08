@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../../Components/Header";
-
+import "./configurationPage.css";
 import SideBar from "../../Components/SideBar";
 import ConfigurationSection from "../../Components/ConfigurationSection";
 const ConfigurationPage = ({isProjectsPage, isConfigurationPage, isSettingsPage}) => {

@@ -3,6 +3,7 @@ import "./header.css";
 import LogoImg from "../Utils/logo.png";
 import Modal from "react-modal";
 import { ImCancelCircle } from "react-icons/im";
+import { Link } from "react-router-dom";
 
 export function Logo() {
     return (
@@ -52,7 +53,9 @@ const Header = () => {
         <>
             <div className="header">
                 <div className="header-title">
-                    <Logo />
+                    <Link to="/" className="project-container">
+                        <Logo />
+                    </Link>
                     <div className="vertical-bar"></div>
                     <div className="header-text">Develop and acquire multiple profitable micro-SaaS products</div>
                 </div>
@@ -61,7 +64,7 @@ const Header = () => {
                     {username === "" ? (
                         <button type="button" className="btn" onClick={handleLogin}>Login</button>
                     ) : (
-                        <div>{username}</div>
+                        <div className="user-name">{username}</div>
                     )}
                 </div>
             </div>
