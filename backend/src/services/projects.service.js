@@ -47,6 +47,29 @@ const updateConfiguration = async(projectId, projectConfig) => {
     return project;
 }
 
+const updateFile = async (projectId, fileId, updateFileData) => {
+    try {
+        const project = await ProjectData.findOne({ _id: projectId });
+        if (!project) {
+            throw new ApiError(httpStatus.NOT_FOUND, "No such project exists");
+        }
+
+        const file = project.files.id(fileId);
+        if (!file) {
+            throw new ApiError(httpStatus.NOT_FOUND, "No such file exists in the project");
+        }
+
+        file.fileDescription = updateFileData.fileDescription || file.fileDescription;
+
+        await project.save();
+
+        return file;
+    } catch (error) {
+        console.error("Error updating file:", error);
+        throw error;
+    }
+
+}
 const deleteFile = async (projectId, fileId) => {
     const project = await ProjectData.findOne({ _id: projectId });
     if (!project) throw new ApiError(httpStatus.NOT_FOUND, "No such project exists");
@@ -64,5 +87,6 @@ module.exports = {
     getProjects,
     updateProjectFiles,
     updateConfiguration,
-    deleteFile
+    deleteFile,
+    updateFile
 }
