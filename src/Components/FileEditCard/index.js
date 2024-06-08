@@ -2,12 +2,13 @@ import React, { useContext, useState } from "react";
 import "./fileEditCard.css";
 import DataContext from "../DataContext";
 import EditIcon from "../Utils/edit.png";
-
+import {config} from '../../App';
+import { Link } from "react-router-dom";
 const FileEditCard = () => {
-    const { selectedFile } = useContext(DataContext);
+    const { project, setProject, selectedFile } = useContext(DataContext);
     const [updatedDescription, setUpdatedDescription] = useState(selectedFile.fileDescription);
     const [isEditing, setIsEditing] = useState(false);
-
+    const [loading, setLoading] = useState(false);
     const handleEdit = (e) => {
         setUpdatedDescription(e.target.value);
     }
@@ -21,8 +22,37 @@ const FileEditCard = () => {
         setIsEditing(false);
     }
 
-    const handleSaveAndExit = () => {
-        
+    const handleSaveAndExit = async() => {
+        setLoading(true);
+        const file = {
+            fileDescription:updatedDescription
+        }
+        const url = `${config.endpoint}/${project._id}/files/${selectedFile._id}`;
+        try {
+            const response = await fetch(url, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(file)
+            });
+    
+            const responseData = await response.json();
+            console.log('Response from backend:', responseData);
+    
+            if (response.ok) {
+                setProject(prevState => ({
+                    ...prevState,
+                    files:responseData.files
+                }));
+            } else {
+                console.error('Failed to create project:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        } finally {
+            setLoading(false);
+        }
         setIsEditing(false);
     }
 
@@ -32,8 +62,13 @@ const FileEditCard = () => {
                 <div className="edit-card-heading">Edit Description</div>
                 {isEditing && (
                     <div className="card-btns">
-                        <div className="discard-btn" onClick={handleDiscard}>Discard</div>
-                        <div className="btn" onClick={handleSaveAndExit}>Save & Exit</div>
+                        <Link to="/project" className="project-container">
+                            <div className="discard-btn" onClick={handleDiscard}>Discard</div>
+                        </Link>
+                        <Link to="/project" className="project-container">
+                            <div className="btn" onClick={handleSaveAndExit}>Save & Exit</div>
+                        </Link>
+                        
                     </div>
                 )}
             </div>

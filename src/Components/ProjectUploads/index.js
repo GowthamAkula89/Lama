@@ -43,13 +43,13 @@ const Uploads = () => {
             <div className="uploads-container">
                 <div className="uploads-heading">Uploads</div>
                 <div className="upload-types">
-                    {uploadTypes.map((item, index) => (
+                    {uploadTypes && uploadTypes.map((item, index) => (
                         <div key={index} onClick={() => handleUpload(item)}>
                             <VideoTypeCard item={item} />
                         </div>
                     ))}
                 </div>
-                {project && project.files.length !== 0 &&
+                {project && project.files?.length !== 0 &&
                     <div className="uploads-list">
                         <div className="uploads-list-headings">
                             <div className={`item-container name-container`}>Name</div>
