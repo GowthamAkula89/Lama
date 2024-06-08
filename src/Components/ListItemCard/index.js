@@ -2,8 +2,9 @@ import React, { useContext, useState } from "react";
 import DataContext from "../DataContext";
 import { config } from "../../App";
 import "./listItemCard.css";
+import { Link } from "react-router-dom";
 export function ListItemCard({ item, projectId, isRequired }) {
-    const { setProject } = useContext(DataContext);
+    const { setProject, setSelectedFile } = useContext(DataContext);
     const [isLoading, setIsLoading] = useState(false);
 
     const handleDeleteFile = async (fileId) => {
@@ -35,6 +36,10 @@ export function ListItemCard({ item, projectId, isRequired }) {
         const minutes = date.getMinutes().toString().padStart(2, '0');
         return `${day} ${month} ${year} | ${hours}:${minutes}`;
     };
+
+    const handleEditDescription = (file) => {
+        setSelectedFile(file);
+    }
     return (
         <>
             <div className="item-card">
@@ -42,7 +47,9 @@ export function ListItemCard({ item, projectId, isRequired }) {
                 <div className="item-content">{formatDate(item.updatedAt)}</div>
                 <div className="item-content">Done</div>
                 <div className="item-content">
-                    <div className="edit-btn">Edit</div>
+                    <Link to="/project/edit"  className="project-container">
+                    <div className="edit-btn" onClick={() => handleEditDescription(item)}>Edit</div>
+                    </Link>
                     <div className="delete-btn" onClick={() => handleDeleteFile(item._id)}>
                         {isLoading ? "Deleting..." : "Delete"}
                     </div>

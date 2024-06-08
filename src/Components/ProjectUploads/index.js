@@ -35,7 +35,9 @@ const Uploads = () => {
         setShowModal(true);
         setSelectedType(item);
     };
-
+    if(project){
+        console.log("Files",project.files)
+    }
     return (
         <>
             <div className="uploads-container">

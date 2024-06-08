@@ -2,6 +2,9 @@
     display: flex;
     flex-direction: column;
     gap: 25px;
+    flex: 1;
+    background-color: var(--color-white);
+    padding-left: 25px;
 }
 .uploads-heading{
     font-size: 55px;
@@ -20,6 +23,8 @@
     border-radius: 5px;
     padding: 5px;
     cursor: pointer;
+    box-shadow: 1.99px 3.25px 5.51px 1px var(--color-gray);
+
 }
 .upload-types{
     display: flex;

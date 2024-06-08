@@ -5,8 +5,9 @@ const DataContext = createContext();
 export const DataProvider = ({ children }) => {
     const [project, setProject] = useState(null);
     const [projects, setProjects] = useState([]);
+    const [selectedFile, setSelectedFile] = useState(null);
   return (
-    <DataContext.Provider value={{ project, setProject, projects, setProjects }}>
+    <DataContext.Provider value={{ project, setProject, projects, setProjects, selectedFile, setSelectedFile }}>
       {children}
     </DataContext.Provider>
   );
