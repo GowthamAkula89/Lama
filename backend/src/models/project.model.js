@@ -71,7 +71,7 @@ const projectSchema = new mongoose.Schema({
                 default: 0
             },
             chatBotImg: {
-                type:Buffer,
+                type:String,
                 default: null
             }
         }

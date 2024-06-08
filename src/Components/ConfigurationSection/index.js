@@ -22,10 +22,10 @@ const ConfigurationSection = () => {
             positionScreen: "",
             distBottom: 0,
             horizontalDist: 0,
-            chatBotImg: null
+            chatBotImg: ""
         }
     });
-    console.log(formData)
+    console.log('Chatbot Image Name:', formData.display.chatBotImg ? formData.display.chatBotImg.name : 'No image selected');
     const [showPrimaryColorPicker, setShowPrimaryColorPicker] = useState(false);
     const [showFontColorPicker, setShowFontColorPicker] = useState(false);
 
@@ -86,7 +86,7 @@ const ConfigurationSection = () => {
             ...prevData,
             [activeHeading.toLowerCase()]: {
                 ...prevData[activeHeading.toLowerCase()],
-                chatBotImg: file
+                chatBotImg: file.name
             }
         }));
     };
