@@ -41,4 +41,5 @@ Make sure you have Node.js and npm installed on your machine.
 
 
 ### Live web URL
-- https://lama-ag.vercel.app/
+- Fronted: https://lama-ag.vercel.app/
+- Backend: https://lama-6tj9.onrender.com/v1/projects
