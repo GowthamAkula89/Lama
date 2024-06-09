@@ -1,67 +1,90 @@
-.side-bar{
-    width: 251px;
-    height: 88vh;
-    background-color: #F3E8FF;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+.side-bar-container {
+  position: relative;
 }
-.menu-list{
-    display: flex;
-    flex-direction: column;
-    gap:5px
+.side-bar {
+  width: 251px;
+  height: 92vh;
+  background-color: #f3e8ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 74px;
 }
-.menu-list-heading{
-    display: flex;
-    justify-content: center;
-    font-size: 18.55px;
-    font-weight: 500;
-    line-height: 26.5px;
-    letter-spacing: 0.13250000774860382px;
-    text-align: left;
+.side-bar.show {
+  position: absolute;
+  display: flex;
+  z-index: 1;
+}
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.menu-list-heading {
+  display: flex;
+  justify-content: center;
+  font-size: 18.55px;
+  font-weight: 500;
+  line-height: 26.5px;
+  letter-spacing: 0.13250000774860382px;
+  text-align: left;
+}
+.menu-item.projects {
+  background-color: var(--color-purple);
+  color: var(--color-white);
+}
+.menu-item.configurations {
+  background-color: var(--color-purple);
+  color: var(--color-white);
+}
+.menu-item.settings {
+  background-color: var(--color-purple);
+  color: var(--color-white);
+}
+.menu-item {
+  gap: 5px;
+  width: 245px;
+  height: 47.2px;
+  display: flex;
+  align-items: center;
+  border-radius: 25px;
+  padding-left: 15px;
+}
+.slno {
+  background-color: var(--color-gray);
+  color: var(--color-black);
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.menu-item-name {
+  font-size: 18.55px;
+  font-weight: 600;
+  line-height: 26.5px;
+}
+.mobile-view-menu {
+  display: none;
+}
 
-}
-.menu-item.projects{
-    background-color: var(--color-purple);
-    color: var(--color-white);
-}
-.menu-item.configurations{
-    background-color: var(--color-purple);
-    color: var(--color-white);
-}
-.menu-item.settings{
-    background-color: var(--color-purple);
-    color: var(--color-white);
-}
-.menu-item{
-    gap: 5px;
-    width: 245px;
-    height: 47.2px;
-    display: flex;
-    align-items: center;
-    border-radius: 25px;
-    padding-left: 15px;
-}
-.slno{
-    background-color: var(--color-gray);
-    color: var(--color-black);
-    width: 25px;
-    height: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-}
-.menu-item-name{
-    font-size: 18.55px;
-    font-weight: 600;
-    line-height: 26.5px;
-    
-}
 @media screen and (max-width: 897px) {
-    .side-bar{
-        display: none;
-    }
-    
+  .mobile-view-menu {
+    display: block;
+    cursor: pointer;
+    display: block;
+    cursor: pointer;
+    margin: 5px 25px;
+    background-color: purple;
+    width: 92px;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+  }
+
+  .side-bar {
+    display: none;
+  }
 }

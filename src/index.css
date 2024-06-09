@@ -1,15 +1,15 @@
 :root {
   /* Global variables to be defined here */
-   --color-white: #ffffff;
-   --color-black: #121212;
-   --color-purple: #7E22CE;
-   --color-gray: #838383;
+  --color-white: #ffffff;
+  --color-black: #121212;
+  --color-purple: #7e22ce;
+  --color-gray: #838383;
 }
 
-body{
+body {
   font-family: Roboto;
   /* font-family: 'Poppins', sans-serif; */
-  background-color: #E7F0FF;
+  background-color: var(--color-white);
 }
 *,
 *::before,

@@ -1,58 +1,70 @@
 .edit-card-container {
-    background-color: var(--color-white);
-    width: 100%;
-    padding-left: 25px;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
+  background-color: var(--color-white);
+  width: 100%;
+  padding-left: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 }
-.edit-card-header{
-    display: flex;
-    padding-right: 45px;
+.edit-card-header {
+  display: flex;
+  padding-right: 45px;
 }
-.card-btns{
-    display: flex;
-    gap: 5px;
-    align-items: center;
+.card-btns {
+  display: flex;
+  gap: 5px;
+  align-items: center;
 }
-.discard-btn{
-    padding: 10px;
-    border: 1px solid rgb(211, 60, 60);
-    color: rgb(211, 60, 60);
-    border-radius: 5px;
-    cursor: pointer;
+.discard-btn {
+  padding: 10px;
+  border: 1px solid rgb(211, 60, 60);
+  color: rgb(211, 60, 60);
+  border-radius: 5px;
+  cursor: pointer;
 }
 .edit-card-heading {
-    font-size: 55px;
-    font-weight: 700;
-    line-height: 64.45px;
-    text-align: left;
-    color: var(--color-purple);
-    flex: 1;
+  font-size: 55px;
+  font-weight: 700;
+  line-height: 64.45px;
+  text-align: left;
+  color: var(--color-purple);
+  flex: 1;
 }
-.edit-card-details{
-    position: relative;
-    max-height: 365px;
-    height: 100%;
+.edit-card-details {
+  position: relative;
+  max-height: 365px;
+  height: 100%;
 }
 .edit-input {
-    width: 90%;
-    height: 100%;
-    border-radius: 15px;
-    outline: none;
-    overflow-y: auto;
-    padding: 45px 15px 15px 15px;
-    box-sizing: border-box;
-    margin-bottom: 0;
+  width: 90%;
+  height: 100%;
+  border-radius: 15px;
+  outline: none;
+  overflow-y: auto;
+  padding: 45px 15px 15px 15px;
+  box-sizing: border-box;
+  margin-bottom: 0;
 }
-.edit-icon{
-    background-color: var(--color-black);
-    color: var(--color-white);
-    border-radius: 15px;
-    position: absolute;
+.edit-icon {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border-radius: 15px;
+  position: absolute;
+  display: flex;
+  gap: 5px;
+  top: 5px;
+  left: 5px;
+  padding: 5px;
+}
+@media screen and (max-width: 897px){
+  .edit-card-heading{
+    font-size: 36px;
+    line-height: 38.45px;
+  }
+  .card-btns {
     display: flex;
     gap: 5px;
-    top: 5px;
-    left: 5px;
-    padding: 5px;
+    align-items: start;
+    flex-direction: column;
+}
 }

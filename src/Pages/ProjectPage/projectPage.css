@@ -1,3 +1,8 @@
-.main-content{
-    display: flex;
+.main-content {
+  display: flex;
+}
+@media screen and (max-width: 897px) {
+  .main-content {
+    flex-direction: column;
+  }
 }

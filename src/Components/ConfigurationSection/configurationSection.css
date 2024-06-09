@@ -1,70 +1,75 @@
 .configurations-container {
-    background-color: var(--color-white);
-    width: 100%;
-    padding: 25px;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
+  background-color: var(--color-white);
+  width: 100%;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 }
 .configuration-title {
-    font-size: 55px;
-    font-weight: 700;
-    line-height: 64.45px;
-    text-align: left;
-    color: var(--color-purple);
+  font-size: 55px;
+  font-weight: 700;
+  line-height: 64.45px;
+  text-align: left;
+  color: var(--color-purple);
 }
 .configuration-details {
-    display: flex;
-    gap: 15px;
+  display: flex;
+  gap: 15px;
 }
 .configuration-heading {
-    font-size: 30px;
-    font-weight: 700;
-    line-height: 35.16px;
-    text-align: left;
-    cursor: pointer;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 35.16px;
+  text-align: left;
+  cursor: pointer;
 }
 .general-configuration-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 .display-configuration-form {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
 }
 .configuration-heading.active {
-    color: var(--color-purple);
+  color: var(--color-purple);
 }
 .form-group {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 .configuration-name {
-    font-size: 21px;
-    font-weight: 700;
-    line-height: 35.16px;
-    text-align: left;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 35.16px;
+  text-align: left;
 }
 .input-field {
-    height: 45px;
-    border-radius: 9px;
-    border: 1px solid var(--color-gray);
+  height: 45px;
+  border-radius: 9px;
+  border: 1px solid var(--color-gray);
 }
 .save-btn {
-    padding: 5px 15px;
-    background-color: var(--color-purple);
-    width: 142px;
-    border-radius: 6px;
-    color: var(--color-white);
-    cursor: pointer;
-    text-align: center;
+  padding: 5px 15px;
+  background-color: var(--color-purple);
+  width: 142px;
+  border-radius: 6px;
+  color: var(--color-white);
+  cursor: pointer;
+  text-align: center;
 }
 .color-picker-container {
-    position: relative;
+  position: relative;
 }
 .color-picker {
-    position: absolute;
-    z-index: 1000;
+  position: absolute;
+  z-index: 1000;
+}
+@media screen and (max-width: 897px) {
+  .display-configuration-form {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
